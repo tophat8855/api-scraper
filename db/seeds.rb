@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+response = RestClient.get('http://gschool.github.io/student-apis/')
+page = Nokogiri::HTML(response.body)
+links = page.css('a')
+links.each do |link|
+  url = link.attr('href') + 'all'
+  data = RestClient.get(url).body
+  result = JSON.parse(data)
+  result.each do |movie|
+    movie["title"]
+    #Movie.create(title: movie[:title], year: movie[:year])
+  end
+end
