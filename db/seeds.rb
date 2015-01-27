@@ -14,7 +14,6 @@ links.each do |link|
   data = RestClient.get(url).body
   result = JSON.parse(data)
   result.each do |movie|
-    movie["title"]
-    #Movie.create(title: movie[:title], year: movie[:year])
+   Movie.create(title: movie["title"], year: movie["year"], plot: movie["plot"], image_url: movie["image_url"])
   end
 end
