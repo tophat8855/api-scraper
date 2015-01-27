@@ -39,3 +39,4 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'rest-client', '~> 1.7.2'
+gem 'nokogiri', '~> 1.6.6.2'
